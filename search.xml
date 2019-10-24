@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>搭建blog</title>
+    <url>/findjoy.github.io/2019/10/24/%E6%90%AD%E5%BB%BAblog/</url>
+    <content><![CDATA[<h3 id="Hexo-blog搭建"><a href="#Hexo-blog搭建" class="headerlink" title="Hexo blog搭建"></a>Hexo blog搭建</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>（安装前提，在安装hexo之前先安装一下两个程序）</p>
+<p>安装 Hexo 相当简单，只需要先安装下列应用程序即可 </p>
+<ul>
+<li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.6，建议使用 Node.js 10.0 及以上版本)</li>
+<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<p>如果您的电脑中已经安装上述必备程序，那么恭喜您！接下来只需要使用 npm 即可完成 Hexo 的安装。 </p>
+<p>在你本地想要的地方新建文件夹（文件夹名字命名你想要的名字 比如: Blog 随意）</p>
+<p>在新建的文件夹下，右键Git Bash Here 输入<code>$ npm install -g hexo-cli</code></p>
+<p>此时你已经成功的安装了所需要的软件。</p>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><p>terminal中输入 <code>$ hexo init</code> 等待初始化</p>
+<p>初始化完成之后 执行  <code>$ npm install</code></p>
+<p>执行完成之后 执行  <code>$ npm install hexo-server –save</code> 用于安装hexo-server以便于本地查看（调试）博客 </p>
+<p>安装完成 输入 <code>$ hexo server</code></p>
+<p>出现提示信息  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop. 就说明成功，访问连接可以看到hexo初始主题样式。</p>
+<h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><p>部署到 Coding 或者Github上 （两者方法一样）</p>
+<p>安装deployer才能将本地代码部署到云端</p>
+<p><code>$ npm install hexo-deployer-git --save</code></p>
+<h6 id="Githubpages"><a href="#Githubpages" class="headerlink" title="Githubpages"></a>Githubpages</h6><ol>
+<li>创建<a href="https://github.com/" target="_blank" rel="noopener">Github</a>账号</li>
+<li>创建仓库， 仓库名为：&lt;Github账号名称&gt;.github.io 并且设置为public</li>
+<li>修改<code>_config.yml</code>（在站点目录下）。文件末尾修改为：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>接下来推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回<code>INFO Deploy done: git</code>即成功推送： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>  等待1分钟左右，浏览器访问网址： <code>https://&lt;Github账号名称&gt;.github.io</code> </p>
+<p>  至此，您的Hexo博客已经搭建在GithubPages, 域名为<code>https://&lt;Github账号名称&gt;.github.io</code>。 </p>
+<h6 id="GithubPages-域名"><a href="#GithubPages-域名" class="headerlink" title="GithubPages + 域名"></a>GithubPages + 域名</h6><p>在方案一的基础上，添加自定义域名（您购买的域名）。</p>
+<ol>
+<li><p>域名解析。</p>
+<p>类型选择为 CNAME；</p>
+<p>主机记录即域名前缀，填写为www；</p>
+<p>记录值填写为&lt;Github账号名称&gt;.github.io；</p>
+<p>解析线路，TTL 默认即可。</p>
+</li>
+<li><p>仓库设置。</p>
+<p>2.1. 打开博客仓库设置：<code>https://github.com/&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io/settings</code></p>
+<p>2.2. 在Custom domain下，填写自定义域名，点击<code>save</code>。</p>
+<p>2.3. 在站点目录的<code>source</code>文件夹下，创建并打开<code>CNAME.txt</code>，写入你的域名（如<code>www.simon96.online</code>），保存，并重命名为<code>CNAME</code>。</p>
+</li>
+<li><p>等待10分钟左右。</p>
+<p>浏览器访问自定义域名。</p>
+<p>至此，您的Hexo博客已经解析到自定义域名，<code>https://&lt;Github账号名称&gt;.github.io</code>依然可用。</p>
+</li>
+</ol>
+<h6 id="GithubPages-CodingPages-域名"><a href="#GithubPages-CodingPages-域名" class="headerlink" title="GithubPages + CodingPages + 域名"></a>GithubPages + CodingPages + 域名</h6><p>GithubPages 在国内较慢，百度不收录，而CodingPages 在国外较快。所以在方案二的基础上，添加CodingPages 。</p>
+<ol>
+<li><p>创建<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>账号</p>
+</li>
+<li><p>创建仓库， 仓库名为：&lt;Coding账号名称&gt;</p>
+</li>
+<li><p>进入项目里『代码』页面，点击『一键开启静态 Pages』，稍等片刻CodingPages即可部署成功。</p>
+</li>
+<li><p>将本地Hexo博客推送到CodingPages</p>
+<p>4.1. 鉴于创建GithubPages 时，已经生成过公钥。可直接复制密钥文件内容（路径形如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>）， 粘贴到<a href="https://dev.tencent.com/user/account/setting/keys" target="_blank" rel="noopener">新增公钥</a>。</p>
+<p>4.2. 测试是否添加成功。在命令行（即Git Bash）依次输入以下命令，返回“You’ve successfully authenticated”即成功：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@git.coding.net</span><br><span class="line">$ yes</span><br></pre></td></tr></table></figure>
+
+<p>4.3. 修改<code>_config.yml</code>（在存放Hexo初始化文件的路径下）。文件末尾修改为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;/&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">- type: git</span><br><span class="line">  repo: git@git.dev.tencent.com:&lt;Coding账号名称&gt;/&lt;Coding账号名称&gt;.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>4.4. 推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回<code>INFO Deploy done: git</code>即成功推送：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>域名解析</p>
+<ol>
+<li><p>添加 CNAME 记录指向 &lt;Coding账号名称&gt;.coding.me</p>
+<p>类型选择为 CNAME；</p>
+<p>主机记录即域名前缀，填写为www；</p>
+<p>记录值填写为&lt;Github账号名称&gt;.coding.me；</p>
+<p>解析线路，TTL 默认即可。</p>
+</li>
+<li><p>添加 两条A 记录指向 192.30.252.153和192.30.252.154</p>
+<p>类型选择为 A；</p>
+<p>主机记录即域名前缀，填写为@；</p>
+<p>记录值填写为192.30.252.153和192.30.252.154；</p>
+<p>解析线路，境外或谷歌。</p>
+</li>
+<li><p>在『Pages 服务』设置页（<code>https://dev.tencent.com/u/&lt;Coding账号名称&gt;/p/&lt;Coding账号名称&gt;/git/pages/settings</code>）中绑定自定义域名。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>至此，您的Hexo博客已经解析到自定义域名，<code>https://&lt;Github账号名称&gt;.github.io</code>和<code>https://&lt;Coding账号名称&gt;.coding.me</code>依然可用。</p>
+<h5 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h5><h6 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h6><p>Hexo默认的主题是landscape 可以在github上找其他主题 <a href="https://github.com/search?q=hexo-theme" target="_blank" rel="noopener">https://github.com/search?q=hexo-theme</a> </p>
+<h6 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h6><ol>
+<li>下载主题</li>
+<li>将下载好的主题文件夹，粘贴到站点目录的<code>themes</code>下。</li>
+<li>更改站点配置文件<code>_config.yml</code> 的theme字段，为主题文件夹的名称：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: &lt;主题文件夹的名称&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>出现在本地可以完整的看到blog</p>
+<p>但是上传到github上的时候 出现无法加载css、js等文件，则在你的根目录的配置文件_config.yml中把</p>
+<p>url: //换成你的地址</p>
+<p>root: //换成你的仓库名</p>
+]]></content>
+  </entry>
+</search>
