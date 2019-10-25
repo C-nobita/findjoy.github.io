@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test</title>
+    <url>/findjoy.github.io/2019/10/25/test/</url>
+    <content><![CDATA[<h5 id="Tihs-is-a-test"><a href="#Tihs-is-a-test" class="headerlink" title="Tihs is a test."></a>Tihs is a test.</h5><p>test</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo blog搭建</title>
     <url>/findjoy.github.io/2019/10/25/Hexo%20blog%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h3 id="Hexo-blog搭建"><a href="#Hexo-blog搭建" class="headerlink" title="Hexo blog搭建"></a>Hexo blog搭建</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>（安装前提，在安装hexo之前先安装一下两个程序）</p>
