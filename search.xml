@@ -3,7 +3,9 @@
   <entry>
     <title>搭建blog</title>
     <url>/findjoy.github.io/2019/10/24/%E6%90%AD%E5%BB%BAblog/</url>
-    <content><![CDATA[<h3 id="Hexo-blog搭建"><a href="#Hexo-blog搭建" class="headerlink" title="Hexo blog搭建"></a>Hexo blog搭建</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>（安装前提，在安装hexo之前先安装一下两个程序）</p>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: Hexo blog搭建</span><br><span class="line">categories: hexo</span><br><span class="line">tags: </span><br><span class="line">  - hexo</span><br><span class="line">  - blog</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hexo-blog搭建"><a href="#Hexo-blog搭建" class="headerlink" title="Hexo blog搭建"></a>Hexo blog搭建</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>（安装前提，在安装hexo之前先安装一下两个程序）</p>
 <p>安装 Hexo 相当简单，只需要先安装下列应用程序即可 </p>
 <ul>
 <li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.6，建议使用 Node.js 10.0 及以上版本)</li>
@@ -18,6 +20,8 @@
 <p>执行完成之后 执行  <code>$ npm install hexo-server –save</code> 用于安装hexo-server以便于本地查看（调试）博客 </p>
 <p>安装完成 输入 <code>$ hexo server</code></p>
 <p>出现提示信息  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop. 就说明成功，访问连接可以看到hexo初始主题样式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+
 <h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><p>部署到 Coding 或者Github上 （两者方法一样）</p>
 <p>安装deployer才能将本地代码部署到云端</p>
 <p><code>$ npm install hexo-deployer-git --save</code></p>
