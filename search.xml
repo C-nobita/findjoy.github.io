@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>设计模式</title>
-    <url>/findjoy.github.io/2019/10/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <url>/2019/10/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>设计模式：针对特定问题的简洁而优雅的解决方案 。</p>
 <p>设计模式最初是静态类型语言中的设计模式，但设计模式实际上是解决某些问题的一种思想，与具体使用的语言无关。 </p>
 <p>设计模式分为三种类型，共23种。创建型模式：单例模式、抽象工厂模式、建造者模式、工厂模式、原型模式。结构型模式：适配器模式、桥接模式、装饰模式、组合模式、外观模式、享元模式、代理模式。行为型模式：模版方法模式、命令模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、职责链模式(责任链模式)、访问者模式。 </p>
@@ -54,7 +54,7 @@
   </entry>
   <entry>
     <title>Hexo blog搭建</title>
-    <url>/findjoy.github.io/2019/10/25/Hexo%20%E6%90%AD%E5%BB%BA/</url>
+    <url>/2019/10/25/Hexo%20%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h3 id="Hexo-blog搭建"><a href="#Hexo-blog搭建" class="headerlink" title="Hexo blog搭建"></a>Hexo blog搭建</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>（安装前提，在安装hexo之前先安装一下两个程序）</p>
 <p>安装 Hexo 相当简单，只需要先安装下列应用程序即可 </p>
 <ul>
