@@ -253,7 +253,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>开发,设计模式</tag>
+        <tag>开发</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -367,7 +368,8 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo,blog</tag>
+        <tag>hexo</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>

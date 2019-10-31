@@ -75,7 +75,7 @@
     <link href="http://www.findjoys.top/2019/10/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>http://www.findjoys.top/2019/10/25/设计模式/</id>
     <published>2019-10-25T07:32:02.000Z</published>
-    <updated>2019-10-31T03:37:34.535Z</updated>
+    <updated>2019-10-31T03:38:32.719Z</updated>
     
     <summary type="html">
     
@@ -93,7 +93,9 @@
       <category term="前端" scheme="http://www.findjoys.top/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="开发,设计模式" scheme="http://www.findjoys.top/tags/%E5%BC%80%E5%8F%91-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="开发" scheme="http://www.findjoys.top/tags/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="设计模式" scheme="http://www.findjoys.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -102,7 +104,7 @@
     <link href="http://www.findjoys.top/2019/10/25/Hexo%20%E6%90%AD%E5%BB%BA/"/>
     <id>http://www.findjoys.top/2019/10/25/Hexo 搭建/</id>
     <published>2019-10-25T02:34:09.000Z</published>
-    <updated>2019-10-31T03:37:23.827Z</updated>
+    <updated>2019-10-31T03:38:36.551Z</updated>
     
     <summary type="html">
     
@@ -120,7 +122,9 @@
       <category term="hexo" scheme="http://www.findjoys.top/categories/hexo/"/>
     
     
-      <category term="hexo,blog" scheme="http://www.findjoys.top/tags/hexo-blog/"/>
+      <category term="hexo" scheme="http://www.findjoys.top/tags/hexo/"/>
+    
+      <category term="blog" scheme="http://www.findjoys.top/tags/blog/"/>
     
   </entry>
   
