@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-nodeJS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="FindJoys" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="nodeJS入门nodeJS简介Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。  简单的说 Node.js 就是运行在服务端的 JavaScript。  node.js特点 ： 单线程  非阻塞 I&#x2F;O（异步）  事件驱动  NPMNPM是随同NodeJS一起安装的包管理工具，包">
+<meta name="keywords" content="-nodeJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodeJS入门">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.findjoys.top&#x2F;2019&#x2F;10&#x2F;29&#x2F;nodeJS%E5%85%A5%E9%97%A8&#x2F;index.html">
+<meta property="og:site_name" content="FindJoys">
+<meta property="og:description" content="nodeJS入门nodeJS简介Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。  简单的说 Node.js 就是运行在服务端的 JavaScript。  node.js特点 ： 单线程  非阻塞 I&#x2F;O（异步）  事件驱动  NPMNPM是随同NodeJS一起安装的包管理工具，包">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-31T03:27:41.348Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.findjoys.top/2019/10/29/nodeJS入门/"/>
+
+
+
+
+
+  <title>nodeJS入门 | FindJoys</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ea4e7f9b668c25b29c6afc61007c883e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FindJoys</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.findjoys.top/2019/10/29/nodeJS%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不止狂澜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FindJoys">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nodeJS入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-29T19:27:58+08:00">
+                2019-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="nodeJS入门"><a href="#nodeJS入门" class="headerlink" title="nodeJS入门"></a>nodeJS入门</h3><h5 id="nodeJS简介"><a href="#nodeJS简介" class="headerlink" title="nodeJS简介"></a>nodeJS简介</h5><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 </p>
+<p>简单的说 Node.js 就是运行在服务端的 JavaScript。 </p>
+<p>node.js特点 ：</p>
+<p>单线程 </p>
+<p>非阻塞 I/O（异步） </p>
+<p>事件驱动 </p>
+<h5 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h5><p>NPM是随同NodeJS一起安装的包管理工具，包的结构使您能够轻松跟踪依赖项和版本。 </p>
+<p>NPM能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
+<p>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</p>
+<p>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</p>
+<p>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。 </p>
+<p>生成 package.json 配置文件 </p>
+<p><code>$ npm init</code></p>
+<p><code>$ npm init -y  //跳过所有提问</code></p>
+<h6 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h6><p>本地安装（当前项目能访问到）</p>
+<p><code>$ npm install 包名</code></p>
+<p>全局安装（其他项目都能访问到）</p>
+<p><code>$ npm install 包名 -global</code></p>
+<p>缩写形式</p>
+<p><code>$ npm i 包名 -g</code></p>
+<p>项目依赖（添加到dependencies）</p>
+<p><code>$ npm install 包名 -save</code> </p>
+<p>项目上线需要用到的包，缩写<code>$ npm install 包名 -S (大写)</code></p>
+<p> 开发依赖（添加到devDependencies） </p>
+<p><code>$ npm install 包名 --save-dev</code></p>
+<p>开发测试需要用到的包，缩写<code>npm install 包名 -D (大写)</code></p>
+<p>移除依赖模块 </p>
+<p><code>$ npm uninstall 包名 -save</code></p>
+<p><code>$ npm uninstall 包名 --save-dev</code></p>
+<p>清除缓存数据 </p>
+<p><code>npm cache verify</code>  如报错 -4048 时使用 </p>
+<p>在package.json 中</p>
+<p>“scripts” 字段定义脚本命令</p>
+<p>“start”: “node jsonp.js”  </p>
+<p><code>npm run start</code>等同于 <code>node jsonp.js</code></p>
+<h5 id="编写nodeJS"><a href="#编写nodeJS" class="headerlink" title="编写nodeJS"></a>编写nodeJS</h5><h6 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h6><p>在window命令行环境中输入指令node并回车，进行node的交互式环境,编写javascript代码执行即可。其中node交互式环境也称之为REPL(Read Eval Print Loop-读取评估打印循环 )，按两次ctrl+c,可退出REPL环境。 </p>
+<p>先输入node指令，进入node的交互式环境，再输入js代码。 </p>
+<h6 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h6><p>把javascript代码写在后缀为.js的文件中 </p>
+<p>如有一个hello.js文件，在window命令行中输入node hello.js即可执行。 </p>
+<p>注：在浏览器环境中全局对象是window，在node环境中全局对象变为global </p>
+<h5 id="搭建web服务器"><a href="#搭建web服务器" class="headerlink" title="搭建web服务器"></a>搭建web服务器</h5><p>步骤：    </p>
+<ol>
+<li>加载http模块   </li>
+<li>创建http服务    </li>
+<li>服务端对象监听request 请求事件，用于监听客户端的请求   </li>
+<li>启动http服务，监听端口 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例：</span></span><br><span class="line"><span class="comment">//加载http模块 </span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="comment">//创建http服务 </span></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"><span class="comment">//服务对象监听request 请求事件，用于监听客户端的请求</span></span><br><span class="line">server.on(<span class="string">'request'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//req-请求对象 , res-响应对象</span></span><br><span class="line">  <span class="comment">//处理客户端请求逻辑</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'收到请求: '</span>+ req.url); <span class="comment">//用户请求地址</span></span><br><span class="line">  res.end(); <span class="comment">//必须结束响应，否则浏览器会被挂起</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//启动http服务，开始监听3000端口</span></span><br><span class="line">server.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'服务已经启动，请访问： http://localhost:3000 或 http://127.0.0.1:3000'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意： </p>
+<ol>
+<li><p>在监听request事件中，最后一定要res.end()结束响应。 </p>
+</li>
+<li><p>浏览器显示中文可能是乱码，需设置响应头告诉浏览器显示时所使用的编码，要在res.end()之前设置</p>
+<p>res.setHeader(“Content-type”,”text/plain;charset=utf-8”); // 响应为纯文本</p>
+<p>res.setHeader(“Content-type”,”text/html;charset=utf-8”);  //响应为html文本 </p>
+<p>设置响应头、状态码、响应类型及编码res.writeHead(200,{‘Content-type’:’text/html;charset=utf-8’}); </p>
+<p>(三者之一)</p>
+</li>
+</ol>
+<h5 id="nodeJSd读写文件"><a href="#nodeJSd读写文件" class="headerlink" title="nodeJSd读写文件"></a>nodeJSd读写文件</h5><p>读文件：fs.readFile(file[, options], callback)    </p>
+<ul>
+<li>参数1：要读取的文件路径，必填。    </li>
+<li>参数2：读取文件时的选项，比如：文件编码utf8。选填。   </li>
+<li>参数3：文件读取完毕后的回调函数，必填。 </li>
+</ul>
+<p>读文件注意：    </p>
+<ul>
+<li><p>该操作采用异步执行    </p>
+</li>
+<li><p>回调函数有两个参数，分别是err和data    </p>
+</li>
+<li><p>如果读取文件时没有指定编码，返回的是二进制数据，如指定编码utf8，会返回指定的编码数据。   </p>
+</li>
+<li><p>只要异步操作，回调函数第一个都是错误对象err优先 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 读文件：fs.readFile(file[, options], callback)</span></span><br><span class="line"><span class="comment">//     * 参数1：要读取的文件路径，必填。</span></span><br><span class="line"><span class="comment">//     * 参数2：读取文件时的选项，比如：文件编码utf8。选填。</span></span><br><span class="line"><span class="comment">//     * 参数3：文件读取完毕后的回调函数，必填。</span></span><br><span class="line">fs.readFile(<span class="string">'./data/write_read.txt'</span>,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>写文件：fs.writeFile(file, data[, options], callback);    </p>
+<ul>
+<li>参数1：要写入的文件路径，必填。    </li>
+<li>参数2：要写入的数据，必填。    </li>
+<li>参数3：写入文件时的选项，比如：文件编码。    </li>
+<li>参数4：文件写入完毕后的回调函数，必填。 </li>
+</ul>
+<p>写文件注意：    </p>
+<ul>
+<li><p>该操作采用异步执行    </p>
+</li>
+<li><p>如果文件存在则替换原内容    </p>
+</li>
+<li><p>默认写入的文件编码为utf8    </p>
+</li>
+<li><p>回调函数有1个参数：err，表示在写入文件的操作过程中是否出错了。    </p>
+</li>
+<li><p>如果出错了err != null，成功时 err === null    * 写入文件（文件不存在则自动创建）</p>
+</li>
+<li><p>writeFile写入文件是先把文件内容清空再写入，如果要追加写入的话可以使用appendFile函数 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 写文件：fs.writeFile(file, data[, options], callback);</span></span><br><span class="line"><span class="comment">//     * 参数1：要写入的文件路径，必填。</span></span><br><span class="line"><span class="comment">//     * 参数2：要写入的数据，必填。</span></span><br><span class="line"><span class="comment">//     * 参数3：写入文件时的选项，比如：文件编码。</span></span><br><span class="line"><span class="comment">//     * 参数4：文件写入完毕后的回调函数，必填。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//writeFile写入文件是先把文件内容清空再写入</span></span><br><span class="line"><span class="comment">//使用appendFile是追加写入</span></span><br><span class="line"><span class="comment">// fs.writeFile('./data/write.txt','this is a test!','utf8',function(err)&#123;</span></span><br><span class="line"><span class="comment">//     if(!err)&#123;</span></span><br><span class="line"><span class="comment">//         console.log("写入数据完成");</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line">fs.appendFile(<span class="string">'./data/write_read.txt'</span>,<span class="string">'this is a test!'</span>,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"写入数据完成"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>其他常用模块： </p>
+<p>path模块 提供用于处理文件路径和目录路径的实用工具。 </p>
+<p>url模块 用于处理与解析 URL。 </p>
+<p> querystring 模块 提供用于解析和格式化 URL 查询字符串的实用工具。 </p>
+<p> 本地服务器 </p>
+<p><code>npm i http-server -g</code>  -g为global 全局 在nodeJS中的全局为global</p>
+<p>cmd 进入当前目录  运行  http-server </p>
+<h5 id="CommonJS模块化规范"><a href="#CommonJS模块化规范" class="headerlink" title="CommonJS模块化规范"></a>CommonJS模块化规范</h5><p>node应用由模块组成，采用的commonjs模块规范。 </p>
+<p>每一个文件就是一个模块，拥有自己独立的作用域，变量，以及方法等，对其他的模块都不可见。 </p>
+<p>加载某个模块，其实是加载该模块的module.exports属性，require方法用于加载模块。 </p>
+<p>CommonJS模块的特点： </p>
+<p>所有代码都运行在模块作用域，不会污染全局作用域。</p>
+<p>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。 </p>
+<p>加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。 </p>
+<p>模块加载的顺序，按照其在代码中出现的顺序。 </p>
+<h5 id="module对象"><a href="#module对象" class="headerlink" title="module对象"></a>module对象</h5><p>CommonJS规范规定，每个模块内部，module变量代表当前模块。 </p>
+<p>这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。 </p>
+<p>module.exports属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取 </p>
+<h5 id="exports变量"><a href="#exports变量" class="headerlink" title="exports变量"></a>exports变量</h5><p>node为每一个模块提供了一个exports变量(可以说是一个对象)，指向 module.exports。 这相当于每个模块中都有一句这样的命令 var exports = module.exports;这样，在对外输出时，可以在这个变量上添加方法。 </p>
+<p>注意：不能把exports直接指向一个值，这样就相当于切断了 exports 和module.exports 的关系。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************/</span></span><br><span class="line"><span class="comment">// exports = fn;</span></span><br><span class="line"><span class="comment">// exports =  writeStream;</span></span><br><span class="line"><span class="comment">//不可以让exports指向一个值</span></span><br><span class="line"><span class="comment">//即为 不可给exports赋值</span></span><br><span class="line"><span class="comment">/**********************************/</span></span><br><span class="line"><span class="comment">//以下方式都ok</span></span><br><span class="line"><span class="comment">// module.exports = &#123; readStream, fn &#125;;</span></span><br><span class="line"><span class="comment">//exports.fn = fn;</span></span><br><span class="line"><span class="comment">//exports.writeStream = writeStream;</span></span><br><span class="line"><span class="comment">//module.exports = &#123;</span></span><br><span class="line"><span class="comment">//    writeStream: writeStream,</span></span><br><span class="line"><span class="comment">//    fn: fn,</span></span><br><span class="line"><span class="comment">//&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="require方法"><a href="#require方法" class="headerlink" title="require方法"></a>require方法</h5><p>require方法用于加载模块文件，相当于读入并执行一个js文件，然后返回该模块的exports对象，没有发现指定模块，则就会报错。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> example = <span class="built_in">require</span>(<span class="string">'./example.js'</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="nodeJS流"><a href="#nodeJS流" class="headerlink" title="nodeJS流"></a>nodeJS流</h5><p>将一个文件的内容通过pipe写入另一个文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">|--main.js</span><br><span class="line"><span class="keyword">let</span> reader = <span class="built_in">require</span>(<span class="string">'./read'</span>);</span><br><span class="line"><span class="keyword">let</span> writer = <span class="built_in">require</span>(<span class="string">'./write'</span>);</span><br><span class="line">reader.fn();</span><br><span class="line">writer.fn();</span><br><span class="line">reader.readStream.pipe(writer.writeStream);<span class="comment">// 读取a.txt，通过管道写入b.txt</span></span><br><span class="line"></span><br><span class="line">|--read.js</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> readStream = fs.createReadStream(<span class="string">'./a.txt'</span>);<span class="comment">// 创建一个可读流</span></span><br><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建一个可读流'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;readStream, fn&#125;;</span><br><span class="line"></span><br><span class="line">|--write.js</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> writeStream = fs.createWriteStream(<span class="string">'./b.txt'</span>,&#123;<span class="attr">flags</span>: <span class="string">'a'</span>&#125;);<span class="comment">// 创建一个可写流</span></span><br><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建一个可写流'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;writeStream,fn&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="ES6-模块与-CommonJS-模块的差异"><a href="#ES6-模块与-CommonJS-模块的差异" class="headerlink" title="ES6 模块与 CommonJS 模块的差异"></a>ES6 模块与 CommonJS 模块的差异</h5><p> ES6 模块与 CommonJS 模块完全不同，它们有两个重大差异。 </p>
+<p> 第一个差异： </p>
+<p>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。</p>
+<p>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。 </p>
+<p>第二个差异： </p>
+<p>因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。</p>
+<p>而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib.js</span></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  counter: counter,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line">上面代码输出内部变量counter和改写这个变量的内部方法incCounter。然后，在main.js里面加载这个模块。</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">var</span> mod = <span class="built_in">require</span>(<span class="string">'./lib'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mod.counter);  <span class="comment">// 3</span></span><br><span class="line">mod.incCounter();</span><br><span class="line"><span class="built_in">console</span>.log(mod.counter); <span class="comment">// 3</span></span><br><span class="line">上面代码说明，lib.js模块加载以后，它的内部变化就影响不到输出的mod.counter了。这是因为mod.counter是一个原始类型的值，会被缓存。除非写成一个函数，才能得到内部变动后的值。</span><br><span class="line"></span><br><span class="line"><span class="comment">// lib.js</span></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="keyword">get</span> counter() &#123;</span><br><span class="line">    <span class="keyword">return</span> counter</span><br><span class="line">  &#125;,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line">上面代码中，输出的counter属性实际上是一个取值器函数。现在再执行main.js，就可以正确读取内部变量counter的变动了。</span><br><span class="line"></span><br><span class="line">$ node main.js</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodeJS/" rel="tag"># -nodeJS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/29/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="next" title="模块化">
+                <i class="fa fa-chevron-left"></i> 模块化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">不止狂澜</p>
+              <p class="site-description motion-element" itemprop="description">寻找快乐</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/C-nobita" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1284536067@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nodeJS入门"><span class="nav-number">1.</span> <span class="nav-text">nodeJS入门</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#nodeJS简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">nodeJS简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NPM"><span class="nav-number">1.0.2.</span> <span class="nav-text">NPM</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#安装包"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">安装包</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编写nodeJS"><span class="nav-number">1.0.3.</span> <span class="nav-text">编写nodeJS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#方式一："><span class="nav-number">1.0.3.1.</span> <span class="nav-text">方式一：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方式二："><span class="nav-number">1.0.3.2.</span> <span class="nav-text">方式二：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#搭建web服务器"><span class="nav-number">1.0.4.</span> <span class="nav-text">搭建web服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nodeJSd读写文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">nodeJSd读写文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CommonJS模块化规范"><span class="nav-number">1.0.6.</span> <span class="nav-text">CommonJS模块化规范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#module对象"><span class="nav-number">1.0.7.</span> <span class="nav-text">module对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exports变量"><span class="nav-number">1.0.8.</span> <span class="nav-text">exports变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#require方法"><span class="nav-number">1.0.9.</span> <span class="nav-text">require方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nodeJS流"><span class="nav-number">1.0.10.</span> <span class="nav-text">nodeJS流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ES6-模块与-CommonJS-模块的差异"><span class="nav-number">1.0.11.</span> <span class="nav-text">ES6 模块与 CommonJS 模块的差异</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不止狂澜</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,6 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>nodeJS入门</title>
+    <url>/2019/10/29/nodeJS%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h3 id="nodeJS入门"><a href="#nodeJS入门" class="headerlink" title="nodeJS入门"></a>nodeJS入门</h3><h5 id="nodeJS简介"><a href="#nodeJS简介" class="headerlink" title="nodeJS简介"></a>nodeJS简介</h5><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 </p>
+<p>简单的说 Node.js 就是运行在服务端的 JavaScript。 </p>
+<p>node.js特点 ：</p>
+<p>单线程 </p>
+<p>非阻塞 I/O（异步） </p>
+<p>事件驱动 </p>
+<h5 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h5><p>NPM是随同NodeJS一起安装的包管理工具，包的结构使您能够轻松跟踪依赖项和版本。 </p>
+<p>NPM能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
+<p>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</p>
+<p>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</p>
+<p>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。 </p>
+<p>生成 package.json 配置文件 </p>
+<p><code>$ npm init</code></p>
+<p><code>$ npm init -y  //跳过所有提问</code></p>
+<h6 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h6><p>本地安装（当前项目能访问到）</p>
+<p><code>$ npm install 包名</code></p>
+<p>全局安装（其他项目都能访问到）</p>
+<p><code>$ npm install 包名 -global</code></p>
+<p>缩写形式</p>
+<p><code>$ npm i 包名 -g</code></p>
+<p>项目依赖（添加到dependencies）</p>
+<p><code>$ npm install 包名 -save</code> </p>
+<p>项目上线需要用到的包，缩写<code>$ npm install 包名 -S (大写)</code></p>
+<p> 开发依赖（添加到devDependencies） </p>
+<p><code>$ npm install 包名 --save-dev</code></p>
+<p>开发测试需要用到的包，缩写<code>npm install 包名 -D (大写)</code></p>
+<p>移除依赖模块 </p>
+<p><code>$ npm uninstall 包名 -save</code></p>
+<p><code>$ npm uninstall 包名 --save-dev</code></p>
+<p>清除缓存数据 </p>
+<p><code>npm cache verify</code>  如报错 -4048 时使用 </p>
+<p>在package.json 中</p>
+<p>“scripts” 字段定义脚本命令</p>
+<p>“start”: “node jsonp.js”  </p>
+<p><code>npm run start</code>等同于 <code>node jsonp.js</code></p>
+<h5 id="编写nodeJS"><a href="#编写nodeJS" class="headerlink" title="编写nodeJS"></a>编写nodeJS</h5><h6 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h6><p>在window命令行环境中输入指令node并回车，进行node的交互式环境,编写javascript代码执行即可。其中node交互式环境也称之为REPL(Read Eval Print Loop-读取评估打印循环 )，按两次ctrl+c,可退出REPL环境。 </p>
+<p>先输入node指令，进入node的交互式环境，再输入js代码。 </p>
+<h6 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h6><p>把javascript代码写在后缀为.js的文件中 </p>
+<p>如有一个hello.js文件，在window命令行中输入node hello.js即可执行。 </p>
+<p>注：在浏览器环境中全局对象是window，在node环境中全局对象变为global </p>
+<h5 id="搭建web服务器"><a href="#搭建web服务器" class="headerlink" title="搭建web服务器"></a>搭建web服务器</h5><p>步骤：    </p>
+<ol>
+<li>加载http模块   </li>
+<li>创建http服务    </li>
+<li>服务端对象监听request 请求事件，用于监听客户端的请求   </li>
+<li>启动http服务，监听端口 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例：</span></span><br><span class="line"><span class="comment">//加载http模块 </span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="comment">//创建http服务 </span></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"><span class="comment">//服务对象监听request 请求事件，用于监听客户端的请求</span></span><br><span class="line">server.on(<span class="string">'request'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//req-请求对象 , res-响应对象</span></span><br><span class="line">  <span class="comment">//处理客户端请求逻辑</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'收到请求: '</span>+ req.url); <span class="comment">//用户请求地址</span></span><br><span class="line">  res.end(); <span class="comment">//必须结束响应，否则浏览器会被挂起</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//启动http服务，开始监听3000端口</span></span><br><span class="line">server.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'服务已经启动，请访问： http://localhost:3000 或 http://127.0.0.1:3000'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意： </p>
+<ol>
+<li><p>在监听request事件中，最后一定要res.end()结束响应。 </p>
+</li>
+<li><p>浏览器显示中文可能是乱码，需设置响应头告诉浏览器显示时所使用的编码，要在res.end()之前设置</p>
+<p>res.setHeader(“Content-type”,”text/plain;charset=utf-8”); // 响应为纯文本</p>
+<p>res.setHeader(“Content-type”,”text/html;charset=utf-8”);  //响应为html文本 </p>
+<p>设置响应头、状态码、响应类型及编码res.writeHead(200,{‘Content-type’:’text/html;charset=utf-8’}); </p>
+<p>(三者之一)</p>
+</li>
+</ol>
+<h5 id="nodeJSd读写文件"><a href="#nodeJSd读写文件" class="headerlink" title="nodeJSd读写文件"></a>nodeJSd读写文件</h5><p>读文件：fs.readFile(file[, options], callback)    </p>
+<ul>
+<li>参数1：要读取的文件路径，必填。    </li>
+<li>参数2：读取文件时的选项，比如：文件编码utf8。选填。   </li>
+<li>参数3：文件读取完毕后的回调函数，必填。 </li>
+</ul>
+<p>读文件注意：    </p>
+<ul>
+<li><p>该操作采用异步执行    </p>
+</li>
+<li><p>回调函数有两个参数，分别是err和data    </p>
+</li>
+<li><p>如果读取文件时没有指定编码，返回的是二进制数据，如指定编码utf8，会返回指定的编码数据。   </p>
+</li>
+<li><p>只要异步操作，回调函数第一个都是错误对象err优先 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 读文件：fs.readFile(file[, options], callback)</span></span><br><span class="line"><span class="comment">//     * 参数1：要读取的文件路径，必填。</span></span><br><span class="line"><span class="comment">//     * 参数2：读取文件时的选项，比如：文件编码utf8。选填。</span></span><br><span class="line"><span class="comment">//     * 参数3：文件读取完毕后的回调函数，必填。</span></span><br><span class="line">fs.readFile(<span class="string">'./data/write_read.txt'</span>,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>写文件：fs.writeFile(file, data[, options], callback);    </p>
+<ul>
+<li>参数1：要写入的文件路径，必填。    </li>
+<li>参数2：要写入的数据，必填。    </li>
+<li>参数3：写入文件时的选项，比如：文件编码。    </li>
+<li>参数4：文件写入完毕后的回调函数，必填。 </li>
+</ul>
+<p>写文件注意：    </p>
+<ul>
+<li><p>该操作采用异步执行    </p>
+</li>
+<li><p>如果文件存在则替换原内容    </p>
+</li>
+<li><p>默认写入的文件编码为utf8    </p>
+</li>
+<li><p>回调函数有1个参数：err，表示在写入文件的操作过程中是否出错了。    </p>
+</li>
+<li><p>如果出错了err != null，成功时 err === null    * 写入文件（文件不存在则自动创建）</p>
+</li>
+<li><p>writeFile写入文件是先把文件内容清空再写入，如果要追加写入的话可以使用appendFile函数 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 写文件：fs.writeFile(file, data[, options], callback);</span></span><br><span class="line"><span class="comment">//     * 参数1：要写入的文件路径，必填。</span></span><br><span class="line"><span class="comment">//     * 参数2：要写入的数据，必填。</span></span><br><span class="line"><span class="comment">//     * 参数3：写入文件时的选项，比如：文件编码。</span></span><br><span class="line"><span class="comment">//     * 参数4：文件写入完毕后的回调函数，必填。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//writeFile写入文件是先把文件内容清空再写入</span></span><br><span class="line"><span class="comment">//使用appendFile是追加写入</span></span><br><span class="line"><span class="comment">// fs.writeFile('./data/write.txt','this is a test!','utf8',function(err)&#123;</span></span><br><span class="line"><span class="comment">//     if(!err)&#123;</span></span><br><span class="line"><span class="comment">//         console.log("写入数据完成");</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line">fs.appendFile(<span class="string">'./data/write_read.txt'</span>,<span class="string">'this is a test!'</span>,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"写入数据完成"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>其他常用模块： </p>
+<p>path模块 提供用于处理文件路径和目录路径的实用工具。 </p>
+<p>url模块 用于处理与解析 URL。 </p>
+<p> querystring 模块 提供用于解析和格式化 URL 查询字符串的实用工具。 </p>
+<p> 本地服务器 </p>
+<p><code>npm i http-server -g</code>  -g为global 全局 在nodeJS中的全局为global</p>
+<p>cmd 进入当前目录  运行  http-server </p>
+<h5 id="CommonJS模块化规范"><a href="#CommonJS模块化规范" class="headerlink" title="CommonJS模块化规范"></a>CommonJS模块化规范</h5><p>node应用由模块组成，采用的commonjs模块规范。 </p>
+<p>每一个文件就是一个模块，拥有自己独立的作用域，变量，以及方法等，对其他的模块都不可见。 </p>
+<p>加载某个模块，其实是加载该模块的module.exports属性，require方法用于加载模块。 </p>
+<p>CommonJS模块的特点： </p>
+<p>所有代码都运行在模块作用域，不会污染全局作用域。</p>
+<p>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。 </p>
+<p>加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。 </p>
+<p>模块加载的顺序，按照其在代码中出现的顺序。 </p>
+<h5 id="module对象"><a href="#module对象" class="headerlink" title="module对象"></a>module对象</h5><p>CommonJS规范规定，每个模块内部，module变量代表当前模块。 </p>
+<p>这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。 </p>
+<p>module.exports属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取 </p>
+<h5 id="exports变量"><a href="#exports变量" class="headerlink" title="exports变量"></a>exports变量</h5><p>node为每一个模块提供了一个exports变量(可以说是一个对象)，指向 module.exports。 这相当于每个模块中都有一句这样的命令 var exports = module.exports;这样，在对外输出时，可以在这个变量上添加方法。 </p>
+<p>注意：不能把exports直接指向一个值，这样就相当于切断了 exports 和module.exports 的关系。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**********************************/</span></span><br><span class="line"><span class="comment">// exports = fn;</span></span><br><span class="line"><span class="comment">// exports =  writeStream;</span></span><br><span class="line"><span class="comment">//不可以让exports指向一个值</span></span><br><span class="line"><span class="comment">//即为 不可给exports赋值</span></span><br><span class="line"><span class="comment">/**********************************/</span></span><br><span class="line"><span class="comment">//以下方式都ok</span></span><br><span class="line"><span class="comment">// module.exports = &#123; readStream, fn &#125;;</span></span><br><span class="line"><span class="comment">//exports.fn = fn;</span></span><br><span class="line"><span class="comment">//exports.writeStream = writeStream;</span></span><br><span class="line"><span class="comment">//module.exports = &#123;</span></span><br><span class="line"><span class="comment">//    writeStream: writeStream,</span></span><br><span class="line"><span class="comment">//    fn: fn,</span></span><br><span class="line"><span class="comment">//&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="require方法"><a href="#require方法" class="headerlink" title="require方法"></a>require方法</h5><p>require方法用于加载模块文件，相当于读入并执行一个js文件，然后返回该模块的exports对象，没有发现指定模块，则就会报错。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example = <span class="built_in">require</span>(<span class="string">'./example.js'</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="nodeJS流"><a href="#nodeJS流" class="headerlink" title="nodeJS流"></a>nodeJS流</h5><p>将一个文件的内容通过pipe写入另一个文件</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">|--main.js</span><br><span class="line"><span class="keyword">let</span> reader = <span class="built_in">require</span>(<span class="string">'./read'</span>);</span><br><span class="line"><span class="keyword">let</span> writer = <span class="built_in">require</span>(<span class="string">'./write'</span>);</span><br><span class="line">reader.fn();</span><br><span class="line">writer.fn();</span><br><span class="line">reader.readStream.pipe(writer.writeStream);<span class="comment">// 读取a.txt，通过管道写入b.txt</span></span><br><span class="line"></span><br><span class="line">|--read.js</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> readStream = fs.createReadStream(<span class="string">'./a.txt'</span>);<span class="comment">// 创建一个可读流</span></span><br><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建一个可读流'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;readStream, fn&#125;;</span><br><span class="line"></span><br><span class="line">|--write.js</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> writeStream = fs.createWriteStream(<span class="string">'./b.txt'</span>,&#123;<span class="attr">flags</span>: <span class="string">'a'</span>&#125;);<span class="comment">// 创建一个可写流</span></span><br><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建一个可写流'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;writeStream,fn&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="ES6-模块与-CommonJS-模块的差异"><a href="#ES6-模块与-CommonJS-模块的差异" class="headerlink" title="ES6 模块与 CommonJS 模块的差异"></a>ES6 模块与 CommonJS 模块的差异</h5><p> ES6 模块与 CommonJS 模块完全不同，它们有两个重大差异。 </p>
+<p> 第一个差异： </p>
+<p>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。</p>
+<p>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。 </p>
+<p>第二个差异： </p>
+<p>因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。</p>
+<p>而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// lib.js</span></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  counter: counter,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line">上面代码输出内部变量counter和改写这个变量的内部方法incCounter。然后，在main.js里面加载这个模块。</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">var</span> mod = <span class="built_in">require</span>(<span class="string">'./lib'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mod.counter);  <span class="comment">// 3</span></span><br><span class="line">mod.incCounter();</span><br><span class="line"><span class="built_in">console</span>.log(mod.counter); <span class="comment">// 3</span></span><br><span class="line">上面代码说明，lib.js模块加载以后，它的内部变化就影响不到输出的mod.counter了。这是因为mod.counter是一个原始类型的值，会被缓存。除非写成一个函数，才能得到内部变动后的值。</span><br><span class="line"></span><br><span class="line"><span class="comment">// lib.js</span></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="keyword">get</span> counter() &#123;</span><br><span class="line">    <span class="keyword">return</span> counter</span><br><span class="line">  &#125;,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line">上面代码中，输出的counter属性实际上是一个取值器函数。现在再执行main.js，就可以正确读取内部变量counter的变动了。</span><br><span class="line"></span><br><span class="line">$ node main.js</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>-nodeJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模块化</title>
+    <url>/2019/10/29/%E6%A8%A1%E5%9D%97%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h5 id="ES6-module"><a href="#ES6-module" class="headerlink" title="ES6 module"></a>ES6 module</h5><p>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD  两种。前者用于服务器，后者用于浏览器。 </p>
+<p>设置浏览器启用es6语法功能：（Chrome 61+，Firefox 54+）1.在浏览器的url中输入：<a href="chrome://flags/" target="_blank" rel="noopener">chrome://flags/</a>2.搜索 JavaScript 关键字3.设置选项 Experimental JavaScript 为 Enable4.重启浏览器后生效 。</p>
+<p><img src="C:%5CUsers%5CNobita%5CAppData%5CLocal%5CTemp%5C1572315848839.png" alt="1572315848839"></p>
+<p>script 标签里面要加 type=”module”, 这样浏览器才会把相关的代码当作ES6的module 来对待不能写“裸”路径，即使是同一层级下面的文件，也要加上 ‘./name.js’ ES6 的模块自动采用严格模式，不管你有没有在模块头部加上”use strict”。 ES6 模块功能主要由两个命令构成：export 和 import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。 一个模块就是一个独立的文件，该文件内部的所有变量，外部无法获取。 </p>
+<h5 id="export-关键字"><a href="#export-关键字" class="headerlink" title="export 关键字"></a>export 关键字</h5><p>如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。以下代码放在 module1.js 文件中 </p>
+<p>// 不推荐 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> userName = <span class="string">'xiaoming'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> userSex = <span class="string">'男'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> userAge = <span class="number">27</span>;</span><br></pre></td></tr></table></figure>
+
+<p>// 推荐 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> userName = <span class="string">'xiaoming'</span>;</span><br><span class="line"><span class="keyword">var</span> userSex = <span class="string">'男'</span>;</span><br><span class="line"><span class="keyword">var</span> userAge = <span class="number">27</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; userName, userSex, userAge &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>export命令除了输出变量，还可以输出对象、函数或类（class）。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码对外输出一个函数multiply。 </p>
+<p>通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123; ... &#125;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  f1 <span class="keyword">as</span> test1,</span><br><span class="line">  f2 <span class="keyword">as</span> test2,</span><br><span class="line">  f2 <span class="keyword">as</span> test3</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码使用as关键字，重命名了函数f1和f2的对外接口。重命名后，f2可以用不同的名字输出两次。 </p>
+<p>错误的写法： </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">export</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> m;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> f;</span><br></pre></td></tr></table></figure>
+
+<p>正确的写法： </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;m&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;n <span class="keyword">as</span> m&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;f&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>export语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> abc = <span class="string">'123'</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> abc = <span class="string">'456'</span>, <span class="number">500</span>);</span><br><span class="line"><span class="comment">//上面代码输出变量abc，值为'123'，500 毫秒之后变成'456'。</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="import-关键字"><a href="#import-关键字" class="headerlink" title="import 关键字"></a>import 关键字</h5><p>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。</p>
+<p>以下代码放在 test1.js 文件中 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; userName, userSex, userAge &#125; <span class="keyword">from</span> <span class="string">'./module1.js'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(userName);</span><br><span class="line"><span class="built_in">console</span>.log(userSex);</span><br><span class="line"><span class="built_in">console</span>.log(userAge);</span><br></pre></td></tr></table></figure>
+
+<p>如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; userName <span class="keyword">as</span> xm &#125; <span class="keyword">from</span> <span class="string">'./module1.js'</span>;</span><br></pre></td></tr></table></figure>
+
+<p> import命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。  </p>
+<p>注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">'./xxx.js'</span></span><br><span class="line">a = <span class="number">123</span>; <span class="comment">// Syntax Error : 'a' is read-only;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果a是一个对象，改写a的属性是允许的。 </span></span><br><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">'./xxx.js'</span></span><br><span class="line">a.foo = <span class="string">'hello'</span>; <span class="comment">// 合法操作</span></span><br></pre></td></tr></table></figure>
+
+<p>除了指定加载某些输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> obj <span class="keyword">from</span> <span class="string">'./module1.js'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.userName);</span><br><span class="line"><span class="built_in">console</span>.log(obj.userSex);</span><br><span class="line"><span class="built_in">console</span>.log(obj.userAge);</span><br></pre></td></tr></table></figure>
+
+<h5 id="export-default-命令"><a href="#export-default-命令" class="headerlink" title="export default 命令"></a>export default 命令</h5>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>-模块化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式</title>
     <url>/2019/10/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>设计模式：针对特定问题的简洁而优雅的解决方案 。</p>
@@ -163,8 +367,7 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>blog</tag>
+        <tag>-hexo -blog</tag>
       </tags>
   </entry>
 </search>
